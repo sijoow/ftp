@@ -6,7 +6,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const port = 8009;
+const port = 3000;
 
 // Multer 설정
 const storage = multer.diskStorage({
