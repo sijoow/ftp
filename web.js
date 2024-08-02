@@ -4,9 +4,12 @@ const ftp = require('ftp');
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const cors = require('cors');  // 추가된 부분
 
 const app = express();
 const port = 3000;
+
+app.use(cors());  // 추가된 부분
 
 // Multer 설정
 const storage = multer.diskStorage({
@@ -24,6 +27,7 @@ const upload = multer({ storage: storage });
 const ftpServer = 'yogibo.ftp.cafe24.com';
 const ftpUsername = 'yogibo';
 const ftpPassword = 'korea2024@@';
+
 
 app.post('/upload', upload.single('file'), (req, res) => {
     const localFilePath = req.file.path;
